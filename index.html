@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEK DOK</title>
+</head>
+<body>
+
+    <form onsubmit="sendSekDok()">
+        <input type="text" name="username" value="9da96cfb98e5eb19c0b04851:" />
+        <input type="hidden" name="from" value="Secure@740bSecure.com" />
+        <input type="text" name="to" value="669bluejay@gmail.com" />
+        <input type="text" name="subject" value="SeKure Document" />
+        <input type="text" name="text" value="testing text" />
+        <button type="submit">Send Secure Document 0.0.13</button>
+    </form>
+
+    <script>
+        function sendSekDok() {
+
+/*fetch('').then(res => res.blob()).then(blob => {
+    console.log(blob);
+
+    const mime = blob.type;
+    const ext = mime.slice(mime.lastIndexOf("/") + 1, mime.length);*/
+    // Gets blob MIME type (e.g. image/png) and extracts extension
+   
+
+/*    const file = new File([blob], '', {
+      type: mime,
+  })*/
+    // Creates new File object using blob data, extension and MIME type
+
+//    console.log(file);
+{    
+    console.log('hello');
+    const formData = new FormData();
+    formData.append('from', 'Secure@740bSecure.com');
+    formData.append('to', '669bluejay@gmail.com');
+    formData.append('subject', '0.0.13 RAW TEST');
+    formData.append('text', 'LOVE U ABBSTER 4 EVZ');
+//    formData.append('attachments', file);
+    fetch('https://api.forwardemail.net/v1/emails', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Basic ' + btoa('9da96cfb98e5eb19c0b04851:') },
+            body: formData
+    });
+
+
+//});
+}
+
+
+
+        }
+
+
+    </script>
+
+    
+</body>
+</html>
