@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="myAlert()">
+        <input type="text" name="subject" value="SeKure Document Delivery" />
+        <input type="text" name="text" value="test text" />
+        <input type="hidden" name="from" value="Secure@740bSecure.com" />
+        <input type="hidden" name="to" value="669bluejay@gmail.com" />
+        <input type="text" name="subject" value="SeKure Document" />
+       
+        <button type="submit">Submit 0.0.5</button>
+    </form>
+
+    <script>
+        function myAlert() {
+            const formEntries = document.querySelector('form');
+            const form = Object.fromEntries(new FormData(formEntries));
+            console.log(form);
+            const subject = document.getElementsByName('subject');
+            console.log(subject[0].value);
+            alert(subject[0].value);
+            alert('goodbye');
+        }
+    </script>
+</body>
+</html>
