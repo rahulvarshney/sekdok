@@ -12,7 +12,7 @@
         <input type="hidden" name="to" value="669bluejay@gmail.com" />
         <input type="text" name="subject" value="SeKure Document" />
         <input type="text" name="text" value="testing text" />
-        <button type="submit">Send Secure Document 0.0.15</button>
+        <button type="submit">Send Secure Document 0.0.18</button>
     </form>
 
     <script>
@@ -32,13 +32,17 @@
     // Creates new File object using blob data, extension and MIME type
 
 //    console.log(file);
-{    
+
+    const formEntries = document.querySelector('form');
+    const form = Object.fromEntries(new FormData(formEntries));
+    console.log(form);
+
     console.log('hello');
     const formData = new FormData();
     formData.append('from', 'Secure@740bSecure.com');
     formData.append('to', '669bluejay@gmail.com');
-    formData.append('subject', '0.0.14 RAW TEST');
-    formData.append('text', 'LOVE U ABBSTER 4 EVZ');
+    formData.append('subject', '0.0.18 file server');
+    formData.append('text', '0.0.18');
 //    formData.append('attachments', file);
     fetch('https://api.forwardemail.net/v1/emails', {
         method: 'POST',
@@ -49,7 +53,7 @@
 
 
 //});
-}
+
 
 
 
