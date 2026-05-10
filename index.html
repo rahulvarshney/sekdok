@@ -12,7 +12,10 @@
         <input type="hidden" name="to" value="669bluejay@gmail.com" />
         <input type="text" name="subject" value="SeKure Document" />
         <input type="text" name="text" value="testing text" />
-        <button type="submit">Send Secure Document 0.0.18</button>
+        <input type="file" name="attachments" />
+        <input id="clickMe" type="button" value="clickme" onclick="sendSekDok();" />
+
+        <button type="submit">Send Secure Document 0.0.24</button>
     </form>
 
     <script>
@@ -34,21 +37,26 @@
 //    console.log(file);
 
     const formEntries = document.querySelector('form');
-    const form = Object.fromEntries(new FormData(formEntries));
-    console.log(form);
+    //const form = Object.fromEntries(new FormData(formEntries));
+    //console.log(form);
+
+    const form = new FormData(formEntries);
+
 
     console.log('hello');
     const formData = new FormData();
     formData.append('from', 'Secure@740bSecure.com');
     formData.append('to', '669bluejay@gmail.com');
-    formData.append('subject', '0.0.18 file server');
-    formData.append('text', '0.0.18');
+    formData.append('subject', '0.0.24 file server');
+    formData.append('text', '0.0.24');
+    console.log(form.get('attachments'));
+        console.log(form.get('to'));
 //    formData.append('attachments', file);
     fetch('https://api.forwardemail.net/v1/emails', {
         method: 'POST',
         headers: {
             'Authorization': 'Basic ' + btoa('9da96cfb98e5eb19c0b04851:') },
-            body: formData
+            body: form
     });
 
 
